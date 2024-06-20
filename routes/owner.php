@@ -9,7 +9,7 @@ use App\Http\Controllers\Owner\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Owner\Auth\RegisteredUserController;
 use App\Http\Controllers\Owner\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Owner\ShopController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +18,6 @@ use Illuminate\Support\Facades\Route;
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
-|
 */
 
 Route::get('/', function () {
@@ -28,6 +27,18 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('owner.dashboard');
 })->middleware(['auth:owners'])->name('dashboard');
+
+Route::prefix('shops')->
+middleware('auth:owners')->group(function () {
+    Route::get('index', [ShopController::class, 'index'])
+    ->name('shops.index');
+    Route::get('edit/{shop}', [ShopController::class,'edit'])
+    ->name('shops.edit');
+    Route::post('update/{shop}', [ShopController::class,'update'])
+    ->name('shops.update');
+});
+
+
 
 
 Route::middleware('guest')->group(function () {

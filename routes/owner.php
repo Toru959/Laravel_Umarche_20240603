@@ -10,6 +10,7 @@ use App\Http\Controllers\Owner\Auth\RegisteredUserController;
 use App\Http\Controllers\Owner\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Owner\ShopController;
+use App\Http\Controllers\Owner\ImageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,7 +39,9 @@ middleware('auth:owners')->group(function () {
     ->name('shops.update');
 });
 
-
+Route::resource('images', ImageController::class)
+->middleware('auth:owners')
+->except(['show']);
 
 
 Route::middleware('guest')->group(function () {

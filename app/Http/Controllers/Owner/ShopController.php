@@ -46,8 +46,8 @@ class ShopController extends Controller
     public function update(UploadImageRequest $request, $id){
         $imageFile = $request->image;
         if(!is_null($imageFile) && $imageFile->isValid()){
-            //$fileNameToStore = ImageService::upload($imageFile, 'shops');
-            Storage::putFile('public/shops', $imageFile); //リサイズなしの場合
+            $fileNameToStore = ImageService::upload($imageFile, 'shops');
+            //Storage::putFile('public/shops', $imageFile); //リサイズなしの場合
             //$fileName = uniqid(rand().'_');
             //$extension = $imageFile->extension();
             //$fileNameToStore = $fileName.'.'.$extension;
@@ -55,7 +55,7 @@ class ShopController extends Controller
 
 //            dd($imageFile, $resizedImage);
             //Storage::put('public/shops/'.$fileNameToStore, $resizedImage);
-            //Storage::putFile('public/shops', $fileNameToStore);
+            //Storage::putFileAs('public/'.$folderName.'/', $file, $fileNameToStore);
 
         }
         return redirect()->route('owner.shops.index');

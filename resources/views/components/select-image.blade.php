@@ -3,6 +3,7 @@
     if( $name === 'image2'){ $modal = 'modal-2'; }
     if( $name === 'image3'){ $modal = 'modal-3'; }
     if( $name === 'image4'){ $modal = 'modal-4'; }
+    if( $name === 'image5'){ $modal = 'modal-5'; }
 @endphp
 <div class="modal micromodal-slide" id="{{ $modal }}" aria-hidden="true">
     <div class="modal__overlay" tabindex="-1" data-micromodal-close>

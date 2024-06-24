@@ -28,6 +28,10 @@
                                 </select>
                             </div>
                         </div>
+                        <x-select-image :images="$images" name="image1" />
+                        <x-select-image :images="$images" name="image2" />
+                        <x-select-image :images="$images" name="image3" />
+                        <x-select-image :images="$images" name="image4" />
                         <div class="p-2 w-full mt-4 flex justify-around">
                             <button type="button" onclick="location.href='{{ route('owner.products.index') }}'" class="bg-gray-200 text-black border-0 py-2 px-8 focus:outline-none hover:bg-grey-200 rounded text-lg">戻る</button>
                             <button type="submit" class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">登録する</button>
@@ -38,4 +42,21 @@
             </div>
         </div>
     </div>
+    <script>
+        'use strict'
+        const images = document.querySelectorAll('.image')
+
+        images.forEach( image => {
+            image.addEventListener('click', function(e){
+                const imageName = e.target.dataset.id.substr(0, 6)
+                const imageId = e.target.dataset.id.replace(imageName + '_', '')
+                const imageFile = e.target.dataset.file
+                const imagePath = e.target.dataset.path
+                const modal = e.target.dataset.modal
+                document.getElementById(imageName + '_thumbnail').src = imagePath + '/' + imageFile
+                document.getElementById(imageName + '_hidden').value = imageId
+                MicroModal.close(modal);
+            }, )
+        })
+    </script>
 </x-app-layout>

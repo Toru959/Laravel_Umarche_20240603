@@ -957,6 +957,11 @@ select {
     margin-bottom: 1.5rem;
 }
 
+.my-8 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
 .-ml-px {
     margin-left: -1px;
 }
@@ -1097,6 +1102,10 @@ select {
     height: 1rem;
 }
 
+.h-40 {
+    height: 10rem;
+}
+
 .h-5 {
     height: 1.25rem;
 }
@@ -1147,6 +1156,10 @@ select {
 
 .w-4 {
     width: 1rem;
+}
+
+.w-40 {
+    width: 10rem;
 }
 
 .w-48 {
@@ -1301,6 +1314,10 @@ select {
 
 .rounded {
     border-radius: 0.25rem;
+}
+
+.rounded-full {
+    border-radius: 9999px;
 }
 
 .rounded-lg {
@@ -1483,6 +1500,11 @@ select {
 
 .fill-current {
     fill: currentColor;
+}
+
+.object-cover {
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 
 .p-2 {
@@ -1918,6 +1940,11 @@ select {
 .hover\:bg-gray-50:hover {
     --tw-bg-opacity: 1;
     background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-gray-600:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(75 85 99 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-gray-700:hover {

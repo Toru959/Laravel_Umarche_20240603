@@ -13,3 +13,7 @@ storageフォルダにリンク後、
 sutorage/app/public/puroductsフォルダ内に
 保存すると表示されます。
 (puroductsフォルダがない場合は作成してください。)
+
+ショップの画像も表示する場合は、
+strage/app/public/shopsフォルダを作成し
+画像を保存してください。

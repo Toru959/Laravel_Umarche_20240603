@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\DB;
 
 class ItemController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:users');
+    }
+
    public function index()
    {
         $stocks = DB::table('t_stocks')
@@ -33,6 +38,12 @@ class ItemController extends Controller
          'products.information', 'secondary_categories.name as category', 'image1.filename as filename')
         ->get();
 
-        return view('user.items.index', compact('products', 'stocks'));
+        return view('user.index', compact('products', 'stocks'));
    } 
+
+   public function show($id)
+   {
+        $product = Product::findOrFail($id);
+        return view('user.show', compact('product'));
+   }
 }

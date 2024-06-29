@@ -32,6 +32,7 @@ Route::middleware('auth:users') //userとしてログインしてた場合
 Route::prefix('cart')
 ->middleware('auth:users')
 ->group(function(){
+    Route::get('/', [CartController::class, 'index'])->name('cart.index');
     Route::post('/add', [CartController::class, 'add'])->name('cart.add');
 });
 

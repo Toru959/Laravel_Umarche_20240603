@@ -58,3 +58,18 @@ sutorage/app/public/puroductsフォルダ内に
 ショップの画像も表示する場合は、
 strage/app/public/shopsフォルダを作成し
 画像を保存してください。
+
+## section7の補足
+
+決済のテストとしてstripewを使用しています。
+場合は .envにstripeの情報を追記してください。
+
+## section8の補足
+
+メールのテストとしてmailtraoを使用しています。
+必要な場合は .envにmailtrapの情報を追記してください。
+
+メール処理には時間がかかるので、
+キューを使用しています。
+
+必要な場合は php artisan queue:workでワーカーを立ち上げて動作確認するようにしてください。
